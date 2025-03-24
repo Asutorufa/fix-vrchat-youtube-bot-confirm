@@ -1,5 +1,7 @@
 #
 
+This is a yt-dlp warp which try pass cookies to fix `ERROR: [youtube]: Sign in to confirm you’re not a bot.` and `A web request exception occurred while loading string from URL 'https://youtu.be/xxxxx'. Exception: Redirect limit exceeded` errors in vrchat/VRC.  
+
 ## yt-dlp wiki
 
 <https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp>
@@ -8,10 +10,10 @@
 
 ### 1. go to vr chat yt-dlp directory
 
-open powershell or linux terminal
+open powershell or linux terminal  
 
-windows at: `[YOU USER DIR]/AppData/LocalLow/VRChat/VRChat/Tools`
-linux at: `[STEAM LIBRARY DIR]/steamapps/compatdata/438100/pfx/drive_c/users/steamuser/AppData/LocalLow/VRChat/VRChat/Tools`
+windows at: `[YOU USER DIR]/AppData/LocalLow/VRChat/VRChat/Tools`  
+linux at: `[STEAM LIBRARY DIR]/steamapps/compatdata/438100/pfx/drive_c/users/steamuser/AppData/LocalLow/VRChat/VRChat/Tools`  
 
 ### 2. dump cookie from browser
 
