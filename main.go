@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	stdlog "log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -10,7 +10,10 @@ import (
 	"strings"
 )
 
+var log = stdlog.New(os.Stderr, "[Asutorufa/fix-vrchat-youtube-bot-confirm] ", stdlog.Default().Flags())
+
 func main() {
+
 	mydir := filepath.Dir(os.Args[0])
 
 	bin := "yt-dlp-o"
@@ -28,8 +31,11 @@ func main() {
 	}
 
 	var args = getCookies(mydir)
+	args = append(args, os.Args[1:]...)
 
-	cmd := exec.Command(path, append(args, os.Args[1:]...)...)
+	log.Printf("run: %s %s\n", path, strings.Join(args, " "))
+
+	cmd := exec.Command(path, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err = cmd.Run()
