@@ -1,0 +1,40 @@
+name: Go
+
+on:
+  push:
+    branches: [main]
+    tags: [v*]
+  pull_request:
+    branches: [main]
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
+          fetch-tags: "true"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          check-latest: true
+          go-version: 'stable'
+          # go-version-file: "go.mod"
+
+      - name: Build
+        env:
+          GOOS: "windows"
+          GOARCH: "amd64"
+          GOAMD64: "v3"
+          CGO_ENABLED: 0
+        run: |
+          go build -o yt-dlp.exe .
+
+      - name: upload_fix-vrchat-youtube-bot-confirm
+        uses: actions/upload-artifact@v4
+        with:
+          name: yt-dlp.exe
+          path: |
+            yt-dlp.exe
