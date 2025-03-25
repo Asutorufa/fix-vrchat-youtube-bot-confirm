@@ -21,6 +21,7 @@ func main() {
 		bin += ".exe"
 	}
 
+	mydir, _ = filepath.Abs(mydir)
 	path := filepath.Join(mydir, bin)
 	_, err := os.Stat(path)
 	if err != nil {

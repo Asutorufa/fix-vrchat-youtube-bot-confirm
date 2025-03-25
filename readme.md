@@ -56,6 +56,36 @@ linux, you need install `curl` first:
 curl https://github.com/Asutorufa/fix-vrchat-youtube-bot-confirm/releases/download/v0.0.1/yt-dlp.exe -o yt-dlp.exe
 ```
 
+### 5. set new yt-dlp.exe to read only
+
+see: <https://x.com/vrc_cheshirecat/status/1856981099928547786>
+
+windows:
+
+```md
+Steps
+    Right-click the file you want to make read-only
+    Select Properties
+    Click the General tab
+    Under Attributes, select the Read-only check box
+    Click Apply
+    Click OK
+```
+
+linux:
+
+```shell
+chmod 555 yt-dlp.exe
+# OR
+sudo chattr +i yt-dlp.exe
+# after set chattr +i, if you want delete the file should `sudo chattr -i yt-dlp.exe` first
+
+# Also, you can use wine/proton/proton-ge explorer.exe to change permission
+# for example:
+WINEPREFIX="[STEAM LIBRARY DIR]/steamapps/compatdata/438100/pfx/" ~/.steam/steam/compatibilitytools.d/GE-Proton9-22-rtsp17/files/bin/wine64 explorer.exe
+# But its effect is the same as chmod, so just use chmod
+```
+
 ## want to use --cookies-from-browser instead of --cookies?
 
 It's possible in windows, just create `browser.txt` with you browser name as content, then delete `cookies.txt`
